@@ -1,0 +1,19 @@
+allprojects {
+    group = 'edu.bbte.idde.vgim1978'
+    version = '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    apply from: "${rootDir}/lint.gradle"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.slf4j:slf4j-api:1.7.25'
+        runtimeOnly group: 'ch.qos.logback', name:'logback-classic', version:'1.2.3'
+    }
+}
